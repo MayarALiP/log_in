@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:log_in/models/LogInAuth.dart';
-import 'package:log_in/models/LogInResponse.dart';
-import 'package:log_in/utilities/Constants.dart';
-import 'package:log_in/utilities/HttpWrapper.dart';
+import 'package:log_in/models/login_auth.dart';
+import 'package:log_in/models/login_response.dart';
+import 'package:log_in/utilities/constants.dart';
+import 'package:log_in/utilities/http_wrapper.dart';
 
 class LogIn {
   Future<LogInResponse> login(LogInAuth loginRequestModel) async {

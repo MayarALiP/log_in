@@ -2,13 +2,12 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:log_in/Models/HttpError.dart';
+import 'package:log_in/Models/http_error.dart';
 
 class HttpWrapper {
   Future<String> get(String url, {Map<String, String>? headers}) async {
     var uri = Uri.parse(url);
     var response = await http.get(uri, headers: headers);
-
     if (response.statusCode == 200) {
       return response.body;
     } else {
@@ -20,7 +19,6 @@ class HttpWrapper {
       {Map<String, String>? headers, Object? body, Encoding? encoding}) async {
     HttpClient httpClient = HttpClient();
     HttpClientRequest request = await httpClient.postUrl(Uri.parse(url));
-
     request.headers.set('Content-type', 'application/json');
     request.headers.set('Accept', 'application/json');
     request.headers
@@ -41,9 +39,9 @@ class HttpWrapper {
     }
   }
 
-  // Future post({required body}) async {}
-  // Future put() async {}
-  // Future delete() async {}
-  // Future patch() async {}
+// Future post({required body}) async {}
+// Future put() async {}
+// Future delete() async {}
+// Future patch() async {}
 
 }

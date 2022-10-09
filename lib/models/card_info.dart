@@ -1,6 +1,5 @@
 class CardInfo {
   String title, subtitle, image;
-
   Function? onCardClick;
   CardInfo(
       {required this.title,
@@ -9,8 +8,8 @@ class CardInfo {
       this.onCardClick});
 }
 
-//? null safty <<
-//  CardIinfo ( String title , String subtitle , String image )
+// ? null safety <<
+//  CardInfo ( String title , String subtitle , String image )
 //{
 //     title = title ;
 //   }

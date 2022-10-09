@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:log_in/dataRepositories/Users.dart';
-import 'package:log_in/models/CardInfo.dart';
-import 'package:log_in/models/User.dart';
-import 'package:log_in/ui/components/InfoCard.dart';
+import 'package:log_in/Models/card_info.dart';
+import 'package:log_in/data_repositories//users.dart';
+import 'package:log_in/models/user_model.dart';
+import 'package:log_in/ui/components/Info_card.dart';
 
 class UsersScreen extends StatefulWidget {
   const UsersScreen({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class UsersScreen extends StatefulWidget {
 }
 
 class _UsersScreenState extends State<UsersScreen> {
-  late Future<List<User>> _usersListFuture;
+  late Future<List<UserModel>> _usersListFuture;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _UsersScreenState extends State<UsersScreen> {
   }
 
   Widget _getUsersGrid() {
-    return FutureBuilder<List<User>>(
+    return FutureBuilder<List<UserModel>>(
         future: _usersListFuture,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -40,11 +40,11 @@ class _UsersScreenState extends State<UsersScreen> {
               children: List.generate(
                 snapshot.data!.length,
                 (index) => InfoCardComponent(
-                  cardInfo: CardInfo(
-                    title:
-                        "${snapshot.data![index].firstName} ${snapshot.data![index].lastName},
+                  mycard: CardInfo(
+                    title: "${snapshot.data![index].firstName} "
+                        "${snapshot.data![index].lastName}",
                     subtitle: snapshot.data![index].email,
-                    image: snapshot.data![index].image,"
+                    image: snapshot.data![index].image,
                   ),
                 ),
               ),
